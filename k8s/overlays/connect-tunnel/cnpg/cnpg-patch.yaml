@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-cluster-proxy
+  namespace: envoy-poc
+spec:
+  env:
+    - name: HTTPS_PROXY
+      value: "http://connect-proxy.envoy-gateway-system.svc:3128"
+    - name: NO_PROXY
+      value: ".svc,.svc.cluster.local,10.0.0.0/8"

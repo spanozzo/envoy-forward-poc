@@ -1,0 +1,14 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: connect-proxy
+  namespace: envoy-poc
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: connect-proxy-gateway
+  httpUpgrade:
+    - type: CONNECT
+      connect:
+        terminate: true

@@ -1,0 +1,11 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: azure-store
+spec:
+  configuration:
+    destinationPath: "https://tmpenvoypoc.blob.core.windows.net/cnpg-backup"
+    azureCredentials:
+      connectionString:
+        name: azure-storage-creds
+        key: AZURE_CONNECTION_STRING

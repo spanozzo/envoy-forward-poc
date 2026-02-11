@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - envoy-proxy-config.yaml
+  - gateway.yaml
+  - httproute.yaml
+  - backend-traffic-policy.yaml
+  - backend.yaml
+  - cnpg/azure-secret.yaml
+  - cnpg/azure-store.yaml
+
+patches:
+  - target:
+      kind: Cluster
+      name: pg-cluster-proxy
+    path: cnpg/cnpg-patch.yaml
