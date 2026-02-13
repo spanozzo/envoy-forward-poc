@@ -1,0 +1,13 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: azure-store
+spec:
+  configuration:
+    # destinationPath stays the same and point to the container where to store backup data
+    destinationPath: "https://tmpenvoypoc.blob.core.windows.net/cnpg-backup"
+    azureCredentials:
+      connectionString:
+        name: azure-storage-creds
+        # the gateway endpoint is defined in the connection string BlobEndpoint field (BlobEndpoint=http://reverse-proxy.envoy-gateway-system.svc:8080), together with the rest of the credentials to access the blob
+        key: AZURE_CONNECTION_STRING

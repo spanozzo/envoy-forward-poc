@@ -1,0 +1,20 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: reverse-proxy-config
+  namespace: envoy-poc
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyDeployment:
+        replicas: 1
+        container:
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+      envoyService:
+        type: ClusterIP
+        # static name referenced in the connection string BlobEndpoint
+        name: reverse-proxy

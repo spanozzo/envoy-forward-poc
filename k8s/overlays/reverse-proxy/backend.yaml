@@ -1,0 +1,10 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: azure-blob-storage
+  namespace: envoy-poc
+spec:
+  endpoints:
+    - fqdn:
+        hostname: tmpenvoypoc.blob.core.windows.net
+        port: 443
