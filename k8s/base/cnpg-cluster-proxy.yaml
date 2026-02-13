@@ -4,7 +4,7 @@ metadata:
   name: pg-cluster-proxy
   namespace: envoy-poc
 spec:
-  instances: 2
+  instances: 1
   storage:
     size: 100Mi
   plugins:

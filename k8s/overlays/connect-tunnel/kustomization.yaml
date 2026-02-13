@@ -8,7 +8,6 @@ resources:
   - httproute.yaml
   - backend-traffic-policy.yaml
   - backend.yaml
-  - cnpg/azure-secret.yaml
   - cnpg/azure-store.yaml
 
 patches:
